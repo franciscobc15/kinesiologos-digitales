@@ -1,0 +1,99 @@
+╔════════════════════════════════════════════════════════════════╗
+║  🚀 KINESIÓLOGOS DIGITALES - INICIO RÁPIDO                   ║
+║     Aplicación 100% lista para deployar                       ║
+╚════════════════════════════════════════════════════════════════╝
+
+📦 ¿QUÉ TENÉS?
+✅ Formulario de 32 preguntas interactivo
+✅ Análisis automático con Claude API
+✅ Generación de 2 PDFs (usuario + admin)
+✅ Dashboard admin con todas las respuestas
+✅ Integración Google Calendar
+✅ Diseño profesional (paleta oficial)
+
+⚡ 3 PASOS PARA DEPLOYAR (Total: 30 minutos)
+
+PASO 1: Crear Firebase Project (5 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Ve a https://console.firebase.google.com
+2. "Crear proyecto" → "kinesiologos-digitales"
+3. Habilita Firestore Database (modo prueba)
+4. Copia credenciales
+5. Pégalas en .env.local
+
+PASO 2: Agregar Variables de Entorno (2 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Copia .env.example a .env.local
+2. Completa con credenciales de Firebase
+3. Agrega Claude API key: sk-ant-api03-mLrx4k...
+4. Guarda
+
+PASO 3: Deploy a Vercel (10 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Push a GitHub: git push
+2. Ve a https://vercel.com
+3. Conecta tu repo
+4. Agrega variables de .env.local
+5. Click "Deploy"
+
+🎯 RESULTADO: https://kinesiologos-digitales.vercel.app
+
+📊 DESPUÉS DE DEPLOYAR
+━━━━━━━━━━━━━━━━━━━━━━
+1. Testea respondiendo el formulario
+2. Comparte el link con kinesiólogos
+3. Monitorea respuestas en Dashboard Admin
+4. Convierte en clientes
+
+🔐 LOGIN ADMIN
+━━━━━━━━━━━━━
+URL: https://kinesiologos-digitales.vercel.app
+Contraseña: kinetk2024
+
+📚 DOCUMENTACIÓN
+━━━━━━━━━━━━━━
+• DEPLOYMENT.md    → Guía paso a paso (LEER PRIMERO)
+• README.md        → Documentación técnica completa
+• ANALISIS.md      → Cómo funciona el scoring de Claude
+• PROYECTO_COMPLETADO.md → Resumen ejecutivo
+
+📞 SOPORTE RÁPIDO
+━━━━━━━━━━━━━━━━
+Problema → Revisa DEPLOYMENT.md
+Probablemente está la solución
+
+🚨 ERROR: "Cannot find module"
+→ npm install && npm run dev
+
+🚨 ERROR: "API key inválida"
+→ Verifica .env.local tiene la key correcta
+
+🚨 ERROR: "Firestore not connected"
+→ Verifica que creaste Firestore Database
+
+❓ PREGUNTAS COMUNES
+━━━━━━━━━━━━━━━━━━
+¿Es gratis? → SÍ (Firebase + Vercel plan free)
+¿Cuántos usuarios? → Ilimitados (hasta 1M ops/mes Firebase)
+¿Dónde se guardan datos? → Firestore (tu servidor privado)
+¿Puedo cambiar colores? → SÍ (App.css)
+¿Puedo cambiar preguntas? → SÍ (Formulario.jsx)
+
+🎊 CHECKLIST
+━━━━━━━━━━━
+[ ] Leí DEPLOYMENT.md
+[ ] Creé Firebase Project
+[ ] Agregué .env.local con credenciales
+[ ] Hice git push
+[ ] Deployé en Vercel
+[ ] Testé la app
+[ ] Compartí el link
+
+═══════════════════════════════════════════════════════════════
+
+✅ TODO LISTO. AHORA SOLO FALTA DEPLOYAR.
+
+Tiempo total: 30 minutos
+Dificultad: Fácil (solo copy/paste)
+
+¡Adelante! 🚀

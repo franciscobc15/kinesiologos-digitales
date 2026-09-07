@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinesiólogos Digitales - Setup Rápido</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #0891b2;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        .paso {
+            background: #f0f9fb;
+            border-left: 4px solid #0891b2;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+        .paso h2 {
+            color: #0891b2;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .paso ol {
+            margin-left: 20px;
+            line-height: 1.8;
+            color: #1e293b;
+        }
+        .paso li {
+            margin-bottom: 10px;
+        }
+        .boton-copiar {
+            background: #0891b2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+        .boton-copiar:hover {
+            background: #0e7490;
+        }
+        .codigo {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            position: relative;
+        }
+        .boton-grande {
+            background: #0891b2;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .boton-grande:hover {
+            background: #0e7490;
+            transform: translateY(-2px);
+        }
+        .link-externo {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .link-externo:hover {
+            text-decoration: underline;
+        }
+        .tiempo {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .exito {
+            background: #dcfce7;
+            color: #166534;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #22c55e;
+        }
+        .aviso {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #ef4444;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        .resumen-datos {
+            background: #e0f2fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0891b2;
+        }
+        .resumen-datos h3 {
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+        .resumen-datos p {
+            color: #0c4a6e;
+            margin-bottom: 8px;
+        }
+        .paso-numero {
+            display: inline-block;
+            background: #0891b2;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🎯 Kinesiólogos Digitales</h1>
+            <p class="subtitle">Tu aplicación está lista para deployar</p>
+        </div>
+
+        <div class="resumen-datos">
+            <h3>✅ Datos configurados para ti:</h3>
+            <p>📧 Email Francisco: <strong>francisco.bustamante.c@mail.pucv.cl</strong></p>
+            <p>🔐 GitHub: <strong>franciscobc15</strong></p>
+            <p>🌐 Claude API: <strong>Configurada</strong></p>
+        </div>
+
+        <!-- PASO 1 -->
+        <div class="paso">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div class="paso-numero">1</div>
+                <h2 style="margin: 0;">Crear Firebase Project (5 minutos)</h2>
+            </div>
+            <div class="tiempo">⏱️ 5 minutos</div>
+            
+            <ol>
+                <li>Abre esta URL: <a href="https://console.firebase.google.com" target="_blank" class="link-externo">https://console.firebase.google.com</a></li>
+                <li>Click en <strong>"Crear proyecto"</strong></li>
+                <li>Nombre: <strong>kinesiologos-digitales</strong></li>
+                <li>Click <strong>"Continuar"</strong> (desabilita Google Analytics)</li>
+                <li>Click <strong>"Crear proyecto"</strong></li>
+                <li><strong>ESPERA 2-3 minutos</strong> a que se cree</li>
+            </ol>
+
+            <div class="exito">
+                ✅ Cuando veas "Tu proyecto está listo", continúa al siguiente paso
+            </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="paso">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div class="paso-numero">2</div>
+                <h2 style="margin: 0;">Obtener Credenciales de Firebase</h2>
+            </div>
+            <div class="tiempo">⏱️ 2 minutos</div>
+
+            <ol>
+                <li>En Firebase Console, click en <strong>⚙️ Configuración del proyecto</strong> (arriba a la derecha)</li>
+                <li>Ir a pestaña <strong>"Cuentas de servicio"</strong></li>
+                <li>Click en <strong>"Generar clave privada"</strong></li>
+                <li>Se descarga un archivo JSON</li>
+                <li><strong>ABRE el archivo</strong> con Bloc de notas (click derecho → Abrir con → Bloc de notas)</li>
+                <li><strong>COPIA TODO el contenido</strong> (Ctrl+A, Ctrl+C)</li>
+            </ol>
+
+            <div class="exito">
+                ✅ Tienes las credenciales de Firebase
+            </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="paso">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div class="paso-numero">3</div>
+                <h2 style="margin: 0;">Crear Archivo .env.local</h2>
+            </div>
+            <div class="tiempo">⏱️ 2 minutos</div>
+
+            <ol>
+                <li>Abre <strong>Bloc de notas</strong></li>
+                <li><strong>COPIA TODO ESTO:</strong></li>
+            </ol>
+
+            <div class="codigo">VITE_FIREBASE_API_KEY=AIzaSyDx1234567890
+VITE_FIREBASE_AUTH_DOMAIN=kinesiologos-digitales.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=kinesiologos-digitales
+VITE_FIREBASE_STORAGE_BUCKET=kinesiologos-digitales.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
+VITE_CLAUDE_API_KEY=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</div>
+
+            <ol start="3">
+                <li><strong>GUARDA COMO:</strong> nombre "<strong>.env.local</strong>" (con el punto al inicio)</li>
+                <li>Carpeta: <strong>kinesiologos-app</strong> (la carpeta que descargaste)</li>
+            </ol>
+
+            <div class="exito">
+                ✅ Las credenciales están guardadas
+            </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="paso">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div class="paso-numero">4</div>
+                <h2 style="margin: 0;">Subir a GitHub (3 minutos)</h2>
+            </div>
+            <div class="tiempo">⏱️ 3 minutos</div>
+
+            <ol>
+                <li>Abre: <a href="https://github.com/franciscobc15/kinesiologos-digitales" target="_blank" class="link-externo">Tu repositorio en GitHub</a></li>
+                <li>Click en <strong>"Add file"</strong> → <strong>"Upload files"</strong></li>
+                <li><strong>Arrastra la carpeta "kinesiologos-app" completa</strong> al área de upload</li>
+                <li>Espera a que se suba (verde = completado)</li>
+                <li>Click <strong>"Commit changes"</strong></li>
+            </ol>
+
+            <div class="exito">
+                ✅ Tu código está en GitHub
+            </div>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="paso">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div class="paso-numero">5</div>
+                <h2 style="margin: 0;">Deployar en Vercel (2 minutos)</h2>
+            </div>
+            <div class="tiempo">⏱️ 2 minutos</div>
+
+            <ol>
+                <li>Abre: <a href="https://vercel.com/new" target="_blank" class="link-externo">https://vercel.com/new</a></li>
+                <li>Click en <strong>"Import Git Repository"</strong></li>
+                <li>Busca: <strong>kinesiologos-digitales</strong></li>
+                <li>Click en tu repo (sale abajo)</li>
+                <li>Click <strong>"Import"</strong></li>
+                <li><strong>IMPORTANTE:</strong> Cuando aparezca "Environment Variables"</li>
+                <li>En el campo, <strong>COPIA ESTO:</strong></li>
+            </ol>
+
+            <div class="codigo">
+VITE_FIREBASE_API_KEY=AIzaSyDx...
+VITE_FIREBASE_AUTH_DOMAIN=kinesiologos-digitales.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=kinesiologos-digitales
+VITE_FIREBASE_STORAGE_BUCKET=kinesiologos-digitales.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
+VITE_CLAUDE_API_KEY=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
+            </div>
+
+            <ol start="8">
+                <li>Click <strong>"Deploy"</strong></li>
+                <li><strong>ESPERA 3-5 minutos</strong> (verás una barra de carga)</li>
+            </ol>
+
+            <div class="exito">
+                ✅ ¡Tu app está en vivo! Vercel te da la URL
+            </div>
+        </div>
+
+        <!-- LISTO -->
+        <div class="paso" style="background: #dcfce7; border-left-color: #22c55e;">
+            <h2 style="color: #166534; margin-bottom: 15px;">🎉 ¡LISTO!</h2>
+            <p style="color: #166534; font-size: 16px; line-height: 1.6;">
+                <strong>Tu app está funcionando.</strong> 
+            </p>
+            <p style="color: #166534; margin-top: 15px;">
+                <strong>URL de la app:</strong><br>
+                Vercel te la mostró al terminar. Será algo como:<br>
+                <code style="background: white; padding: 10px; border-radius: 6px;">https://kinesiologos-digitales.vercel.app</code>
+            </p>
+            <p style="color: #166534; margin-top: 15px;">
+                <strong>Login Admin:</strong><br>
+                Contraseña: <code style="background: white; padding: 2px 8px; border-radius: 4px;">kinetk2024</code>
+            </p>
+        </div>
+
+        <div class="aviso">
+            <strong>⚠️ IMPORTANTE:</strong><br>
+            Si algo no funciona, revisa que:<br>
+            ✓ El archivo .env.local esté EN la carpeta kinesiologos-app<br>
+            ✓ La carpeta completa está en GitHub<br>
+            ✓ Las credenciales estén correctas en Vercel
+        </div>
+
+        <button class="boton-grande" onclick="alert('¡Perfecto! Ahora sigue los 5 pasos arriba. Toma café mientras se despliega 😄')">
+            ✅ Entendido, voy a hacer los pasos
+        </button>
+    </div>
+</body>
+</html>
