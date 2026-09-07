@@ -1,0 +1,143 @@
+🎯 KINESIÓLOGOS DIGITALES - TU APP ESTÁ LISTA PARA DEPLOYAR
+
+HOLA FRANCISCO,
+
+Tu app está 100% lista. Solo tienes que seguir 5 pasos simples (solo clickear botones).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 LO QUE NECESITAS:
+
+1. La carpeta "kinesiologos-app" (que ya descomprimiste)
+2. Tu cuenta de Google (franciscobc15@gmail.com)
+3. Tu cuenta de GitHub (franciscobc15)
+4. Tu cuenta de Vercel (ya conectada con GitHub)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ 5 PASOS (15 minutos total)
+
+📌 PASO 1: CREAR FIREBASE PROJECT (5 minutos)
+
+1. Abre: https://console.firebase.google.com
+2. Click en "Crear proyecto"
+3. Nombre: kinesiologos-digitales
+4. Click "Continuar" 
+5. Desabilita Google Analytics (unchecked)
+6. Click "Crear proyecto"
+7. ESPERA 2-3 minutos
+
+✅ Cuando veas "Tu proyecto está listo" → Continúa
+
+
+📌 PASO 2: OBTENER CREDENCIALES (2 minutos)
+
+1. En Firebase Console, click en ⚙️ (arriba a la derecha)
+2. Click en "Configuración del proyecto"
+3. Click en pestaña "Cuentas de servicio"
+4. Click en "Generar clave privada"
+5. Se descarga un archivo JSON
+6. ABRE el archivo con Bloc de notas
+7. COPIA TODO el contenido (Ctrl+A → Ctrl+C)
+
+✅ Ya tienes las credenciales
+
+
+📌 PASO 3: CREAR ARCHIVO .env.local (2 minutos)
+
+1. En la carpeta "kinesiologos-app", hay un archivo llamado ".env.local"
+2. ABRE con Bloc de notas
+3. REEMPLAZA esto:
+
+VITE_FIREBASE_API_KEY=AIzaSyDx1234567890
+VITE_FIREBASE_AUTH_DOMAIN=kinesiologos-digitales.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=kinesiologos-digitales
+VITE_FIREBASE_STORAGE_BUCKET=kinesiologos-digitales.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
+
+CON lo que copiaste del JSON en el Paso 2 (solo los valores)
+
+4. GUARDA (Ctrl+S)
+
+✅ Credenciales guardadas
+
+
+📌 PASO 4: SUBIR A GITHUB (3 minutos)
+
+1. Abre: https://github.com/franciscobc15/kinesiologos-digitales
+   (O crea un nuevo repo llamado "kinesiologos-digitales")
+
+2. Click "Add file" → "Upload files"
+
+3. ARRASTRA la carpeta "kinesiologos-app" al área de upload
+   (O haz click y selecciona todos los archivos)
+
+4. Espera a que suba (verás una barra de progreso)
+
+5. Click "Commit changes"
+
+✅ Tu código está en GitHub
+
+
+📌 PASO 5: DEPLOYAR EN VERCEL (2 minutos)
+
+1. Abre: https://vercel.com/dashboard
+
+2. Click "Add New" → "Project"
+
+3. Click "Import Git Repository"
+
+4. Busca "kinesiologos-digitales" en el buscador
+
+5. Click en el resultado (sale abajo)
+
+6. Click "Import"
+
+7. Cuando aparezca "Configure Project":
+   - En "Environment Variables"
+   - Pega las variables del .env.local
+
+8. Click "Deploy"
+
+9. ESPERA 3-5 minutos (verás una barra de carga azul)
+
+✅ ¡LISTO! Tu app está en vivo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 CUANDO TERMINA VERCEL:
+
+- Te muestra una URL como: https://kinesiologos-digitales.vercel.app
+- Esa es tu app
+- Comparte ese link con tus kinesiólogos
+- Ellos responden el formulario
+- Tú ves todo en Dashboard Admin
+- Login: Contraseña = kinetk2024
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ SI ALGO NO FUNCIONA:
+
+Problema: "Error de credenciales"
+→ Verifica que el .env.local está EN la carpeta kinesiologos-app
+
+Problema: "Repository not found"
+→ Espera 5 minutos, a veces GitHub es lento
+
+Problema: "Deploy failed"
+→ Revisa que copiaste todas las variables en Vercel
+
+Problema: "Blank page"
+→ Espera 5 minutos más, a veces Vercel toma tiempo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✉️ ¿PREGUNTAS?
+
+Email: francisco.bustamante.c@mail.pucv.cl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Listo, ¡a deployar! 🚀
