@@ -294,14 +294,16 @@ const Formulario = ({ setCurrentPage }) => {
       const respuestasFormato = {
         ...respuestas,
         timestamp: new Date().toISOString()
-     // Enviar a Formspree
-fetch('https://formspree.io/f/mkjnqken', {
-  method: 'POST',
-  body: JSON.stringify(respuestas),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-}); };
+      };
+
+      // Enviar a Formspree
+      await fetch('https://formspree.io/f/mkjnqken', {
+        method: 'POST',
+        body: JSON.stringify(respuestasFormato),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
       // Aquí se llamaría a Claude API para generar análisis
       // Por ahora, usamos datos de prueba
