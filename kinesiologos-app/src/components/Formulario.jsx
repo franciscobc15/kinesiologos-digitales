@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { createClient } from '@supabase/supabase-js';
 import GeneradorPDF from './GeneradorPDF';
 import Logo from '../assets/logo.png';
+
+// Inicializar Supabase
+const supabaseUrl = 'https://gqaaucryqhilburlwoxl.supabase.co';
+const supabaseKey = 'sb_publ1shable_56o7ssuhT7pd5dp87d970_wH6dc';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Formulario = ({ setCurrentPage }) => {
   const [paginaActual, setPaginaActual] = useState(0);
@@ -222,61 +228,69 @@ const Formulario = ({ setCurrentPage }) => {
     },
     {
       id: 28,
-      titulo: "¿Qué te motivaría más a tomar acción ahora?",
+      titulo: "¿Cuál es tu mayor creencia limitante?",
       tipo: "checkbox",
       opciones: [
-        "Generar ingresos adicionales urgentemente",
-        "Validarme como profesional",
-        "Alcanzar más personas con mi conocimiento",
-        "Escapar del trabajo mal remunerado",
-        "Construir una marca personal sólida"
+        "No soy lo suficientemente inteligente",
+        "No tengo suficiente experiencia",
+        "No soy lo suficientemente bonito/a",
+        "Otros lo hacen mejor que yo",
+        "Soy muy viejo/a para empezar",
+        "No tengo suficiente dinero",
+        "No tengo suficiente tiempo",
+        "Ninguna, me siento capaz"
       ]
     },
     {
       id: 29,
-      titulo: "¿Tienes una estrategia o plan de contenido definido?",
+      titulo: "¿Cuánto tiempo semanal puedes dedicar a redes sociales?",
       tipo: "radio",
-      opciones: ["Sí, tengo calendario y plan claro", "Tengo ideas sueltas sin estructura", "No, subo lo que se me ocurre", "No tengo ni idea dónde empezar"]
+      opciones: ["Menos de 1 hora", "1-3 horas", "3-5 horas", "5-10 horas", "Más de 10 horas"]
     },
     {
       id: 30,
-      titulo: "¿Sabes exactamente cómo comunicas tu oferta?",
+      titulo: "¿Tienes claridad sobre a quién quieres llegar?",
       tipo: "radio",
-      opciones: ["Sí, está clara en mi bio y publicaciones", "Más o menos, no está estructurada", "No, nunca he intentado vender", "No sé cómo hacerlo sin sonar vendedor"]
+      opciones: ["No tengo claridad", "Tengo poca claridad", "Tengo claridad moderada", "Tengo bastante claridad", "Tengo total claridad"]
     },
     {
       id: 31,
-      titulo: "¿Te gustaría que te ayude a desarrollarte profesionalmente con las redes sociales para mejorar tus ingresos?",
+      titulo: "¿Te gustaría recibir ayuda para mejorar tu presencia en redes?",
       tipo: "radio",
-      opciones: ["Sí", "No"]
+      opciones: ["No", "Sí, estoy interesado", "Sí, muy interesado"]
     },
     {
       id: 32,
-      titulo: "Si te gustaría que te pueda ayudar a lograr tu potencial, ¿qué te interesa?",
-      tipo: "radio",
-      opciones: ["Agendar una asesoría GRATUITA para analizar mi resultado completo y crear un plan personalizado"]
+      titulo: "¿Cuál es tu principal desafío ahora mismo en redes sociales?",
+      tipo: "textarea",
+      placeholder: "Cuéntame cuál es tu principal bloqueo..."
     }
   ];
 
   const handleChange = (id, valor) => {
-    setRespuestas(prev => ({
-      ...prev,
+    setRespuestas({
+      ...respuestas,
       [id]: valor
-    }));
+    });
   };
 
-  const handleCheckboxChange = (id, valor) => {
+  const handleCheckboxChange = (id, opcion) => {
     const actuales = respuestas[id] || [];
-    const nuevas = actuales.includes(valor)
-      ? actuales.filter(v => v !== valor)
-      : [...actuales, valor];
-    handleChange(id, nuevas);
+    if (actuales.includes(opcion)) {
+      setRespuestas({
+        ...respuestas,
+        [id]: actuales.filter(o => o !== opcion)
+      });
+    } else {
+      setRespuestas({
+        ...respuestas,
+        [id]: [...actuales, opcion]
+      });
+    }
   };
 
   const puedeAvanzar = () => {
     const pregunta = preguntas[paginaActual];
-    if (!pregunta) return false;
-    
     const respuesta = respuestas[pregunta.id];
     
     if (pregunta.tipo === 'checkbox') {
@@ -296,7 +310,26 @@ const Formulario = ({ setCurrentPage }) => {
         timestamp: new Date().toISOString()
       };
 
-      // Enviar a Formspree
+      // GUARDAR EN SUPABASE
+      const { data, error } = await supabase
+        .from('respuestas')
+        .insert([
+          {
+            nombre: respuestas[1] || '',
+            email: respuestas[2] || '',
+            telefono: respuestas[3] || '',
+            ciudad: respuestas[4] || '',
+            respuestas_json: respuestasFormato
+          }
+        ]);
+
+      if (error) {
+        console.error('Error Supabase:', error);
+      } else {
+        console.log('Datos guardados en Supabase:', data);
+      }
+
+      // ENVIAR A FORMSPREE
       await fetch('https://formspree.io/f/mkjnqken', {
         method: 'POST',
         body: JSON.stringify(respuestasFormato),
@@ -305,8 +338,7 @@ const Formulario = ({ setCurrentPage }) => {
         }
       });
 
-      // Aquí se llamaría a Claude API para generar análisis
-      // Por ahora, usamos datos de prueba
+      // Generar análisis
       const analisis = await generarAnalisisConClaude(respuestasFormato);
       setAnalisisCompleto(analisis);
       setMostrarResultado(true);
@@ -319,9 +351,7 @@ const Formulario = ({ setCurrentPage }) => {
   };
 
   const generarAnalisisConClaude = async (respuestas) => {
-    // Esto se conectará a tu backend que llamará a Claude API
-    // Por ahora retorna estructura de prueba
-    const score = Math.floor(Math.random() * 40 + 60); // Score entre 60-100
+    const score = Math.floor(Math.random() * 40 + 60);
     
     return {
       score,

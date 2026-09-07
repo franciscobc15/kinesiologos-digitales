@@ -12,7 +12,8 @@
     "react-dom": "^18.2.0",
     "axios": "^1.6.0",
     "@react-pdf/renderer": "^3.3.0",
-    "html2pdf.js": "^0.10.1"
+    "html2pdf.js": "^0.10.1",
+    "@supabase/supabase-js": "^2.38.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
